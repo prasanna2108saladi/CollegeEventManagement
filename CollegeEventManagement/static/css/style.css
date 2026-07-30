@@ -1,0 +1,137 @@
+/* =========================================================
+   style.css — Blue & White theme for CampusEvents
+   ========================================================= */
+
+:root {
+    --brand-blue: #0d47a1;
+    --brand-blue-dark: #093170;
+    --brand-blue-light: #e8f0fe;
+    --accent-blue: #1565c0;
+    --soft-grey: #f6f8fb;
+}
+
+body {
+    background-color: var(--soft-grey);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #1a1a2e;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    background: linear-gradient(90deg, var(--brand-blue-dark), var(--brand-blue));
+}
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+}
+.navbar .nav-link:hover {
+    color: #ffffff !important;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background: linear-gradient(135deg, var(--brand-blue) 0%, var(--accent-blue) 100%);
+    color: #fff;
+    border-radius: 1rem;
+    padding: 3.5rem 2rem;
+}
+.hero h1 {
+    font-weight: 700;
+}
+.hero .btn-light {
+    color: var(--brand-blue);
+    font-weight: 600;
+}
+
+/* ---------- Cards ---------- */
+.event-card {
+    border: none;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(13, 71, 161, 0.08);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    height: 100%;
+}
+.event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(13, 71, 161, 0.18);
+}
+.event-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    background: var(--brand-blue-light);
+}
+.event-card .badge-category {
+    background-color: var(--brand-blue-light);
+    color: var(--brand-blue);
+    font-weight: 600;
+}
+.event-card .card-title {
+    color: var(--brand-blue-dark);
+    font-weight: 700;
+}
+
+/* ---------- Stat cards (dashboard) ---------- */
+.stat-card {
+    border: none;
+    border-radius: 1rem;
+    color: #fff;
+    padding: 1.5rem;
+    box-shadow: 0 4px 14px rgba(13, 71, 161, 0.15);
+}
+.stat-card.blue { background: linear-gradient(135deg, #1565c0, #0d47a1); }
+.stat-card.teal { background: linear-gradient(135deg, #0288d1, #01579b); }
+.stat-card.indigo { background: linear-gradient(135deg, #3949ab, #1a237e); }
+.stat-card .stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* ---------- Forms ---------- */
+.form-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(13, 71, 161, 0.08);
+}
+.form-label {
+    font-weight: 600;
+    color: var(--brand-blue-dark);
+}
+.btn-primary {
+    background-color: var(--brand-blue);
+    border-color: var(--brand-blue);
+}
+.btn-primary:hover {
+    background-color: var(--brand-blue-dark);
+    border-color: var(--brand-blue-dark);
+}
+
+/* ---------- Section titles ---------- */
+.section-title {
+    color: var(--brand-blue-dark);
+    font-weight: 700;
+    border-left: 5px solid var(--brand-blue);
+    padding-left: 0.7rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    color: #6b7280;
+}
+
+/* ---------- Misc ---------- */
+.badge-upcoming { background-color: #2e7d32 !important; }
+.badge-completed { background-color: #9e9e9e !important; }
+.badge-today { background-color: #ef6c00 !important; }
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #6b7280;
+}
+.empty-state i {
+    font-size: 3rem;
+    color: var(--brand-blue-light);
+}

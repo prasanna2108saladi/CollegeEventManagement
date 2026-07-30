@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Create Event — CampusEvents{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="form-card">
+            <h3 class="section-title mb-4">Create a New Event</h3>
+            <form method="POST" enctype="multipart/form-data" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label" for="name">Event Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ form.get('name','') }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="category">Category *</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="" disabled {% if not form.get('category') %}selected{% endif %}>Choose category</option>
+                            {% for cat in ["Technical", "Cultural", "Sports", "Workshop", "Seminar", "Fest", "Hackathon", "Other"] %}
+                            <option value="{{ cat }}" {% if form.get('category') == cat %}selected{% endif %}>{{ cat }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label" for="description">Description *</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required>{{ form.get('description','') }}</textarea>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label" for="venue">Venue *</label>
+                        <input type="text" class="form-control" id="venue" name="venue" value="{{ form.get('venue','') }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="organizer">Organizer Name *</label>
+                        <input type="text" class="form-control" id="organizer" name="organizer" value="{{ form.get('organizer','') }}" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label" for="date">Date *</label>
+                        <input type="date" class="form-control" id="date" name="date" value="{{ form.get('date','') }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="time">Time *</label>
+                        <input type="time" class="form-control" id="time" name="time" value="{{ form.get('time','') }}" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label" for="image">Event Image</label>
+                        <input type="file" class="form-control" id="image" name="image" accept=".png,.jpg,.jpeg,.gif,.webp">
+                        <img id="imagePreview" src="#" alt="Preview" class="img-fluid rounded mt-2 d-none" style="max-height:150px;">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="registration_link">Registration Link (optional)</label>
+                        <input type="url" class="form-control" id="registration_link" name="registration_link" placeholder="https://..." value="{{ form.get('registration_link','') }}">
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle me-1"></i>Create Event</button>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
